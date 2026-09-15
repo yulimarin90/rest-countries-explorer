@@ -8,7 +8,9 @@
 - 
 - 
 - 
-
+<!-- Que intente primero y por que no funciono 
+● Que error o comportamiento inesperado obtuve (mensaje exacto) 
+● Que decidi finalmente y qué alternativa descarte-->
 ## Pruebas realizadas
 <!-- Explicar cómo se verificó el funcionamiento -->
 
