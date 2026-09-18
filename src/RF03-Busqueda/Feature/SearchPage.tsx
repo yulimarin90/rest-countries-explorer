@@ -1,42 +1,47 @@
 import { useEffect, useState } from "react";
-import { getCountries } from "../services/countriesService";
+import { getCountries } from "../Services/countriesService";
 import type { Country } from "../Types/item";
-import { useCountrySearch } from "../hooks/useCountrySearch";
+import { useCountrySearch } from "../Hooks/useCountrySearch";
 
 const SearchPage = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchInput, setSearchInput] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  //const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    const controller = new AbortController();
     const loadCountries = async () => {
       try {
         setLoading(true);
         setError("");
 
-        const data = await getCountries();
+        const data = await getCountries(controller.signal);
 
         setCountries(data);
-      } catch {
+      } catch (error){
+        if (error instanceof DOMException && error.name === "AbortError") {
+          return
+        }
+
         setError("No se pudieron cargar los países");
       } finally {
         setLoading(false);
       }
-    };
+    }
 
     loadCountries();
-  }, []);
+
+    return () => {
+      controller.abort();
+    }
+  }, [])
 
   const filteredCountries = useCountrySearch(
     countries,
-    searchTerm
+    searchInput
   );
-
-  const handleSearch = () => {
-    setSearchTerm(searchInput);
-  };
 
   if (loading) {
     return <p>Cargando países...</p>;
@@ -57,10 +62,6 @@ const SearchPage = () => {
           onChange={(event) => setSearchInput(event.target.value)}
           placeholder="Buscar país..."
         />
-
-        <button type="button" onClick={handleSearch}>
-          Buscar
-        </button>
       </div>
 
       {filteredCountries.length === 0 ? (
