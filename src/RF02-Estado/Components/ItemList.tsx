@@ -9,7 +9,10 @@ function ItemList({ items }: ItemListProps) {
   return (
     <div>
       {items.map((item) => (
-        <ItemCard key={item.id} item={item} />
+        <ItemCard 
+            key={item.names.common} //se identifica cada elemento con un key único, en este caso el nombre común del país
+            item={item} 
+        />
       ))}
     </div>
   );
