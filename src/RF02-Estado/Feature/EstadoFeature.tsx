@@ -22,6 +22,9 @@ function EstadoFeature() {
       setError(null)
 
       try {
+        await new Promise((resolve) => setTimeout(resolve, 5000))
+
+        //throw new Error('Error de prueba') // muestra el estado de error
         const countries = await getCountries(controller.signal)
 
         setData(countries)

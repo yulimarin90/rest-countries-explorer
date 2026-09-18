@@ -22,4 +22,5 @@ export async function getCountries(
   console.log('Respuesta de la API:', result)
 
   return result.data.objects
+  return [] //estado no se encontraron resultados
 }
