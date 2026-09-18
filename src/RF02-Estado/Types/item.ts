@@ -1,40 +1,44 @@
 
 
 export interface Language {
-  name: string
-  native_name: string
-  iso639_1: string
-  iso639_2: string
-  iso639_3: string
+  bcp47: string;
+  iso639_1: string;
+  iso639_2b: string;
+  iso639_2t: string;
+  iso639_3: string;
+  name: string;
+  native_name: string;
 }
 
 export interface Capital {
-  name: string
-  coordinates: {
-    latitude: number
-    longitude: number
-  }
   attributes: {
-    primary: boolean
-    constitutional: boolean
-    administrative: boolean
-    executive: boolean
-    legislative: boolean
-    judicial: boolean
-  }
+    administrative: boolean;
+    constitutional: boolean;
+    executive: boolean;
+    judicial: boolean;
+    legislative: boolean;
+    primary: boolean;
+  };
+
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+
+  name: string;
 }
 
 export interface Item {
   names: {
-    common: string
+    common: string;
   }
-  region: string
-  languages: Language[]
-  capitals: Capital[]
+  region: string;
+  languages?: Language[];
+  capitals?: Capital[];
 }
 
 export interface CountriesResponse {
   data: {
-    objects: Item[]
+    objects: Item[];
   }
 }

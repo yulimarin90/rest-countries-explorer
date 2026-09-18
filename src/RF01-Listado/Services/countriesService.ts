@@ -3,7 +3,7 @@
 import type { CountriesResponse } from "../types/country";
 
 const API_URL =
-  "https://api.restcountries.com/countries/v5?limit=25&pretty=1";
+  "https://api.restcountries.com/countries/v5?limit=25&response_fields=names.common,region,languages,capitals";
 
 const API_KEY = import.meta.env.VITE_REST_COUNTRIES_API_KEY;
 
@@ -18,7 +18,7 @@ export const getCountries = async (
   });
 
   if (!response.ok) {
-    throw new Error("No se pudieron obtener los países");
+    throw new Error("No fue posible obtener los países");
   }
 
   const data: CountriesResponse = await response.json();
