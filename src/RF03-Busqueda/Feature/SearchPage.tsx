@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
 import { getCountries } from "../services/countriesService";
+import type { Country } from "../Types/item";
 import { useCountrySearch } from "../hooks/useCountrySearch";
-
-interface Country {
-  name: {
-    common: string;
-  };
-  cca3: string;
-}
 
 const SearchPage = () => {
   const [countries, setCountries] = useState<Country[]>([]);
+  const [searchInput, setSearchInput] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -39,6 +34,10 @@ const SearchPage = () => {
     searchTerm
   );
 
+  const handleSearch = () => {
+    setSearchTerm(searchInput);
+  };
+
   if (loading) {
     return <p>Cargando países...</p>;
   }
@@ -51,20 +50,26 @@ const SearchPage = () => {
     <main>
       <h1>Búsqueda de países</h1>
 
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-        placeholder="Buscar país..."
-      />
+      <div>
+        <input
+          type="text"
+          value={searchInput}
+          onChange={(event) => setSearchInput(event.target.value)}
+          placeholder="Buscar país..."
+        />
+
+        <button type="button" onClick={handleSearch}>
+          Buscar
+        </button>
+      </div>
 
       {filteredCountries.length === 0 ? (
-        <p>No se encontraron países.</p>
+        <p>No se encontraron países coincidentes.</p>
       ) : (
         <ul>
           {filteredCountries.map((country) => (
-            <li key={country.cca3}>
-              {country.name.common}
+            <li key={country.names.common}>
+              {country.names.common}
             </li>
           ))}
         </ul>

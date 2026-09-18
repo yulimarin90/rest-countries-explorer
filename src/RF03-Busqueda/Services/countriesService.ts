@@ -1,15 +1,4 @@
-interface Country {
-  name: {
-    common: string;
-  };
-  cca3: string;
-}
-
-interface CountriesResponse {
-  data: {
-    objects: Country[];
-  };
-}
+import type { Country, CountriesResponse } from "../Types/item";
 
 const API_URL =
   "https://api.restcountries.com/countries/v5?limit=25&pretty=1";
@@ -27,6 +16,8 @@ export const getCountries = async (): Promise<Country[]> => {
   }
 
   const data: CountriesResponse = await response.json();
+
+  console.log("PAÍSES RECIBIDOS:", data.data.objects);
 
   return data.data.objects;
 };

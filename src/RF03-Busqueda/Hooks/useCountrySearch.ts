@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
-
-interface Country {
-  name: {
-    common: string;
-  };
-  cca3: string;
-}
+import type { Country } from "../Types/item";
 
 export const useCountrySearch = (
   countries: Country[],
   searchTerm: string
 ) => {
-  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
+  const [filteredCountries, setFilteredCountries] =
+    useState<Country[]>(countries);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -22,9 +17,13 @@ export const useCountrySearch = (
         return;
       }
 
-      const results = countries.filter((country) =>
-        country.name.common.toLowerCase().includes(normalizedSearch)
-      );
+      const results = countries.filter((Country) => {
+        console.log("PAÍS QUE SE ESTÁ FILTRANDO:", Country);
+
+        return country.names.common
+          .toLowerCase()
+          .includes(normalizedSearch);
+      });
 
       setFilteredCountries(results);
     }, 400);
