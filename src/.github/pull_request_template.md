@@ -19,7 +19,6 @@ RF01-listado
 - [X] No se agregaron errores de TypeScript
 - [X] Se respetan los criterios de aceptación
 
--------------------------------------------------------------
 ## Requisito relacionado
 RF02-estados
 
@@ -39,7 +38,7 @@ RF02-estados
 - [] Se probaron los casos principales
 - [] No se agregaron errores de TypeScript
 - [] Se respetan los criterios de aceptación
----------------------------------------------------------------
+
 ## Requisito relacionado
 RF03-busqueda
 
@@ -63,7 +62,6 @@ RF03-busqueda
 - [X] No se agregaron errores de TypeScript
 - [X] Se respetan los criterios de aceptación
 
------------------------------------------------------------------
 ## Requisito relacionado
 RF04-detalle
 
@@ -83,7 +81,6 @@ RF04-detalle
 - [] No se agregaron errores de TypeScript
 - [] Se respetan los criterios de aceptación
 
-------------------------------------------------------------------
 ## Requisito relacionado
 RF05-favoritos
 
@@ -103,7 +100,6 @@ RF05-favoritos
 - [] No se agregaron errores de TypeScript
 - [] Se respetan los criterios de aceptación
 
-------------------------------------------------------------------
 ## Requisito relacionado
 RF06-reintento
 
