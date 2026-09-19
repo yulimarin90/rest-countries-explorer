@@ -7,7 +7,7 @@ import {
   saveFavorites,
   toggleFavorite,
 } from "../Services/favoritesService";
-import type { Country } from "../Types/item";
+import type { Country } from "../Types/items";
 import type { Favorite } from "../Types/favorite";
 
 function FavoritosFeature() {
