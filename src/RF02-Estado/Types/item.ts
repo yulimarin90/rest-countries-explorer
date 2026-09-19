@@ -1,5 +1,3 @@
-
-
 export interface Language {
   bcp47: string;
   iso639_1: string;
