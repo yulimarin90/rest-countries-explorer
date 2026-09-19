@@ -1,5 +1,5 @@
 // Este componente recibe el arreglo de países y se encarga de recorrerlo.
-import type { Country } from "../types/country";
+import type { Country } from "../Types/country";
 import CountryCard from "./CountryCard";
 
 interface CountryListProps {

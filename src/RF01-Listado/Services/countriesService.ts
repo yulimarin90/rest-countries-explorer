@@ -1,9 +1,9 @@
 // Este archivo será el encargado de conectarse con REST Countries
 
-import type { CountriesResponse } from "../types/country";
+import type { CountriesResponse } from "../Types/country";
 
 const API_URL =
-  "https://api.restcountries.com/countries/v5?limit=25&response_fields=names.common,region,languages,capitals";
+  "https://api.restcountries.com/countries/v5?limit=40&response_fields=names.common,region,languages,capitals";
 
 const API_KEY = import.meta.env.VITE_REST_COUNTRIES_API_KEY;
 

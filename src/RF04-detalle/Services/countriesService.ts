@@ -1,7 +1,7 @@
 import type { CountriesResponse, Item } from '../Types/item'
 
 const API_URL =
-  'https://api.restcountries.com/countries/v5?limit=50&response_fields=names.common,region,languages,capitals'
+  'https://api.restcountries.com/countries/v5?limit=40&response_fields=names.common,region,languages,capitals,area'
 
 export async function getCountries(
   signal?: AbortSignal

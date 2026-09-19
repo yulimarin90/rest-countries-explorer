@@ -1,10 +1,7 @@
 
 import { useEffect, useState } from "react";
-
 import { getCountries } from "../Services/countriesService";
-
-import type { Country } from "../types/country";
-
+import type { Country } from "../Types/country";
 import CountryList from "../Components/CountryList";
 
 function CountryPage() {
@@ -20,8 +17,10 @@ function CountryPage() {
       setError(null);
 
       try {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         const result = await getCountries(controller.signal);
 
+        
         setData(result.data.objects);
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {

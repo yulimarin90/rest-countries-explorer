@@ -1,6 +1,6 @@
 //mostrar la información de un país.
 
-import type { Country } from "../../../types/country";
+import type { Country } from "../Types/country";
 
 interface CountryCardProps {
   country: Country;
@@ -11,7 +11,7 @@ function CountryCard({ country }: CountryCardProps) {
   const language = country.languages?.[0]?.name ?? "No disponible";
 
   return (
-    <article>
+    <article className="country-card">
       <h2>{country.names.common}</h2>
 
       <p>

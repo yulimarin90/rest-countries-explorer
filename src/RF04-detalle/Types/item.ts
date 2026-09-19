@@ -1,3 +1,8 @@
+export interface Area {
+  kilometers: number
+  miles: number
+}
+
 export interface Language {
   name: string
 }
@@ -13,6 +18,8 @@ export interface Item {
   region: string
   languages?: Language[]
   capitals?: Capital[]
+  area: Area
+  
 }
 
 export interface CountriesResponse {

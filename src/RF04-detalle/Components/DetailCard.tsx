@@ -11,9 +11,13 @@ function DetailCard({ item }: DetailCardProps) {
   return (
     <article>
       <h2>{item.names.common}</h2>
-
+      
       <p>
         <strong>Región:</strong> {item.region}
+      </p>
+
+      <p>
+        <strong>Área:</strong> {item.area.kilometers} km²
       </p>
 
       <p>
@@ -29,6 +33,8 @@ function DetailCard({ item }: DetailCardProps) {
           ? languages.map((language) => language.name).join(', ')
           : 'No registrados'}
       </p>
+
+      
     </article>
   )
 }
