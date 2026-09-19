@@ -17,8 +17,8 @@ export const useCountrySearch = (
         return;
       }
 
-      const results = countries.filter((Country) => {
-        console.log("PAÍS QUE SE ESTÁ FILTRANDO:", Country);
+        const results = countries.filter((country) => {
+        console.log("PAÍS QUE SE ESTÁ FILTRANDO:", country);
 
         return country.names.common
           .toLowerCase()

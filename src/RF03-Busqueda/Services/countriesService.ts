@@ -1,14 +1,17 @@
 import type { Country, CountriesResponse } from "../Types/item";
 
 const API_URL =
-  "https://api.restcountries.com/countries/v5?limit=25&pretty=1";
+  "https://api.restcountries.com/countries/v5?limit=50&pretty=1";
 
-export const getCountries = async (): Promise<Country[]> => {
+export const getCountries = async (
+  signal?: AbortSignal
+): Promise<Country[]> => {
   const response = await fetch(API_URL, {
     headers: {
       Authorization:
-        "Bearer rc_live_21d8af0706f344db9aae2cf3d594ef5a",
+        `Bearer ${import.meta.env.VITE_REST_COUNTRIES_API_KEY}`,
     },
+    signal,
   });
 
   if (!response.ok) {
